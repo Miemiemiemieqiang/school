@@ -13,7 +13,8 @@ import org.springframework.stereotype.Controller;
  */
 @Configuration
 @ComponentScan(basePackages = {"mie.cai.school.application.scan.component"},
-        excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = {Controller.class}),
-                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = {ComService.class})})
-public class ScanConfig {
+        includeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = {Controller.class}),
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = {ComService.class})},
+        useDefaultFilters = false)
+public class ScanIncludeConfig {
 }

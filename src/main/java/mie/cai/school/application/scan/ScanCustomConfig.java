@@ -1,10 +1,9 @@
 package mie.cai.school.application.scan;
 
-import mie.cai.school.application.scan.component.ComService;
+import mie.cai.school.application.scan.custom.ComFilterType;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
-import org.springframework.stereotype.Controller;
 
 /**
  * ScanConfig class
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Controller;
  */
 @Configuration
 @ComponentScan(basePackages = {"mie.cai.school.application.scan.component"},
-        excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = {Controller.class}),
-                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = {ComService.class})})
-public class ScanConfig {
+        includeFilters = {@ComponentScan.Filter(type = FilterType.CUSTOM, value = {ComFilterType.class})},
+        useDefaultFilters = false)
+public class ScanCustomConfig {
 }

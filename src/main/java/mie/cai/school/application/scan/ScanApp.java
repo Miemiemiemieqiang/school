@@ -9,7 +9,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class ScanApp {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(ScanConfig.class);
+//        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(ScanIncludeConfig.class);
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(ScanCustomConfig.class);
         System.out.println(applicationContext);
     }
 }
