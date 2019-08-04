@@ -1,9 +1,8 @@
 package mie.cai.school.application.scan;
 
 import mie.cai.school.application.scan.component.ComService;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
+import mie.cai.school.beans.Student;
+import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -17,4 +16,26 @@ import org.springframework.stereotype.Controller;
                 @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = {ComService.class})},
         useDefaultFilters = false)
 public class ScanIncludeConfig {
+    @Bean
+    public Student student() {
+        return new Student("Cai");
+    }
+
+    @Bean
+    @Scope(value = "prototype")
+    public Student studentPrototype() {
+        return new Student("Cai");
+    }
+
+    @Bean
+    @Lazy
+    public Student studentLazy() {
+        return new Student("Cai");
+    }
+
+    @Bean
+    @Conditional(value = StudentConditional.class)
+    public Student studentConditional() {
+        return new Student("Cai");
+    }
 }
